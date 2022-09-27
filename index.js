@@ -7,7 +7,9 @@ const s3 = new aws.S3();
 async function getRepoIssues(owner, repo) {
     const { data } = await octokit.request('GET /repos/{owner}/{repo}/issues/comments', {
         owner: owner,
-        repo: repo
+        repo: repo,
+        sort: "updated",
+        direction: "desc"
     })
     return data
 }
