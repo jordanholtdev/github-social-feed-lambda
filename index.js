@@ -21,13 +21,13 @@ exports.handler = async (event, context, handler) => {
     // const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));
     const key = "issues.json"
 
-    const res = await Promise.all([getRepoIssues("aws", "aws-cli"), getRepoIssues("vercel", "next.js"), getRepoIssues("facebook", "react"), getRepoIssues("torvalds", "linux")]).then(
+    const res = await Promise.all([getRepoIssues("aws", "aws-cli"), getRepoIssues("vercel", "next.js"), getRepoIssues("facebook", "react"), getRepoIssues("ansible", "ansible")]).then(
         results => {
             issues = JSON.stringify({
                 aws: results[0],
                 next: resulst[1],
                 react: results[2],
-                linux: results[3]
+                ansible: results[3]
             })
         }
     )
