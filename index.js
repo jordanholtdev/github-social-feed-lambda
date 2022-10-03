@@ -17,7 +17,7 @@ async function getRepoIssues(owner, repo) {
 exports.handler = async (event, context, handler) => {
     let issues;
     // const bucket = event.Records[0].s3.bucket.name;
-    const bucket = "git-repo-test-bucket";
+    const bucket = "gfeed.jordanholt.dev";
     // const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));
     const key = "issues.json"
 
