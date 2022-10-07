@@ -16,10 +16,8 @@ async function getRepoIssues(owner, repo) {
 
 exports.handler = async (event, context, handler) => {
     let issues;
-    // const bucket = event.Records[0].s3.bucket.name;
-    const bucket = "gfeed.jordanholt.dev";
-    // const key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));
-    const key = "issues.json"
+    const bucket = process.env.BUCKET_NAME;
+    const key = "issues.json";
 
     const res = await Promise.all([getRepoIssues("aws", "aws-cli"), getRepoIssues("vercel", "next.js"), getRepoIssues("facebook", "react"), getRepoIssues("ansible", "ansible")]).then(
         results => {
